@@ -1,0 +1,23 @@
+// This #include statement was automatically added by the Particle IDE.
+#include <Grove_Temperature_And_Humidity_Sensor.h>
+
+
+DHT dht(A2);
+
+void setup()
+{                                
+Serial.begin(9600);
+
+dht.begin();
+}
+
+
+void loop()
+{
+float temp = dht.getTempCelcius();
+
+Particle.publish("temp", String(temp), PRIVATE);
+delay(30000);
+}
+
+    
